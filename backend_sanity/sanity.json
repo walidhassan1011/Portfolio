@@ -1,10 +1,10 @@
 {
   "root": true,
   "project": {
-    "name": "walid_portfolio"
+    "name": "portfolio"
   },
   "api": {
-    "projectId": "gfdf1va2",
+    "projectId": "1lj1av8l",
     "dataset": "production"
   },
   "plugins": [

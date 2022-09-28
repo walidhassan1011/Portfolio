@@ -3,7 +3,7 @@ import "./About.scss";
 import { images } from "../../constants";
 import { motion } from "framer-motion";
 import { urlFor, client } from "../../client";
-
+import { APPWrapper } from "../../wrapper";
 const About = () => {
   const [abouts, setAbouts] = useState([]);
   useEffect(() => {
@@ -51,4 +51,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default APPWrapper(About, "about");

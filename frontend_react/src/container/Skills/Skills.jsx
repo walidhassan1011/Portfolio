@@ -22,7 +22,7 @@ const Skills = () => {
       <h2 className="head-text">Skills & Experience</h2>
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
-          {skills.map((skill) => (
+          {skills?.map((skill) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
@@ -40,6 +40,33 @@ const Skills = () => {
               <p className="p-text">{skill.name}</p>
             </motion.div>
           ))}
+        </motion.div>
+        <motion.div className="app__skills-exp">
+          {experience?.map(
+            (exp) =>
+              exp.year
+              // <>
+              //   <motion.div
+              //     whileInView={{ opacity: [0, 1] }}
+              //     transition={{ duration: 0.5 }}
+              //     className="app__skills-exp-work"
+              //     data-tip
+              //     data-for={exp.name}
+              //     key={exp.name}
+              //   >
+              //     <h4 className="bold-text">{exp.name}</h4>
+              //     <p className="p-text">{exp.company}</p>
+              //   </motion.div>
+              //   <ReactTooltip
+              //     id={exp.name}
+              //     effect="solid"
+              //     arrowColor="#fff"
+              //     className="skills__tooltip"
+              //   >
+              //     {exp.desc}
+              //   </ReactTooltip>
+              // </>
+          )}
         </motion.div>
       </div>
     </>

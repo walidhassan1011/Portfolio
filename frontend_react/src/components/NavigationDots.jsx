@@ -9,7 +9,11 @@ const NavigationDots = ({ active }) => {
             key={item + index}
             className="app__navigation-dot"
             href={`#${item.toLowerCase()}`}
-            style={active === item ? { backgroundColor: "#313BAC" } : {}}
+            style={
+              active === item.toLowerCase()
+                ? { backgroundColor: "#313BAC" }
+                : {}
+            }
           />
         )
       )}

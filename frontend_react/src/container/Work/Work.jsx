@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AiFillGithub, AiFillEye } from "react-icons/ai";
 import "./Work.scss";
 import { motion } from "framer-motion";
-import { APPPWrapper, APPWrapper } from "../../wrapper";
+import { APPWrapper } from "../../wrapper";
 import { urlFor, client } from "../../client";
 const Work = () => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -19,7 +19,25 @@ const Work = () => {
       setFilterWork(res);
     });
   }, []);
-  const handleWorkFilter = (item) => {};
+  const handleWorkFilter = (item) => {
+    setActiveFilter(item.toLowerCase());
+    setAnimateCard([
+      {
+        y: 100,
+        opacity: 0,
+      },
+    ]);
+    setTimeout(() => {
+      setAnimateCard([{ y: 0, opacity: 1 }]);
+      if (item === "All") {
+        setFilterWork(works);
+      } else {
+        setFilterWork(
+          works.filter((work) => work.tags.includes(item.toLowerCase()))
+        );
+      }
+    }, 500);
+  };
   return (
     <>
       <h2 className="head-text">
@@ -34,7 +52,7 @@ const Work = () => {
               handleWorkFilter(item);
             }}
             className={`app__work-filter-item app__flex p-text ${
-              activeFilter === item ? "item-active" : ""
+              activeFilter === item.toLowerCase() ? "item-active" : ""
             }`}
           >
             {item}

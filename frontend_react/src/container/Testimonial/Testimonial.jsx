@@ -34,8 +34,4 @@ const Testimonial = () => {
   );
 };
 
-export default APPWrapper(
-  MotionWrap(Testimonial, "app__testimonial"),
-  "testimonial",
-  "app__primarybg"
-);
+export default Testimonial;

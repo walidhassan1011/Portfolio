@@ -49,41 +49,46 @@ const Footer = () => {
           </a>
         </div>
       </div>
-
-      <div className="app__footer-form app__flex">
-        <div className="app__flex">
-          <input
-            type="text"
-            className="p-text"
-            placeholder="your name"
-            value={name}
-            name="name"
-            onChange={handleChangeInput}
-          />
-        </div>
-        <div className="app__flex">
-          <input
-            type="email"
-            className="p-text"
-            placeholder="your email"
-            value={email}
-            name="email"
-            onChange={handleChangeInput}
-          />
-        </div>
-        <div className="">
-          <textarea
-            className="p-text"
-            placeholder="your message"
-            value={message}
-            name={message}
-            onChange={handleChangeInput}
-          />
+      {!isFormSubmitted ? (
+        <div className="app__footer-form app__flex">
+          <div className="app__flex">
+            <input
+              type="text"
+              className="p-text"
+              placeholder="your name"
+              value={name}
+              name="name"
+              onChange={handleChangeInput}
+            />
+          </div>
+          <div className="app__flex">
+            <input
+              type="email"
+              className="p-text"
+              placeholder="your email"
+              value={email}
+              name="email"
+              onChange={handleChangeInput}
+            />
+          </div>
+          <div>
+            <textarea
+              className="p-text"
+              placeholder="your message"
+              value={message}
+              name="message"
+              onChange={handleChangeInput}
+            />
+          </div>
           <button type="button" className="p-text" onClick={handleSubmit}>
             {loading ? "Sending..." : "Send Message"}
           </button>
         </div>
-      </div>
+      ) : (
+        <div>
+          <h3 className="head-text">thank you for getting touch </h3>
+        </div>
+      )}
     </>
   );
 };
